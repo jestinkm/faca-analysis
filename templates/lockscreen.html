@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Session Locked - FaceSecure{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+<div class="lock-screen">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card p-5 text-center">
+                    <div class="lock-icon">
+                        <i class="bi bi-lock-fill"></i>
+                    </div>
+                    
+                    <h2 class="mb-3">Session Locked</h2>
+                    
+                    <div class="alert alert-danger mb-4">
+                        <strong>Reason:</strong> {{ reason }}
+                    </div>
+                    
+                    <p class="text-muted mb-4">
+                        Your session has been locked due to a security event. 
+                        Please authenticate again to continue.
+                    </p>
+                    
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Authenticate Again
+                    </a>
+                    
+                    <div class="mt-4 pt-4 border-top">
+                        <p class="text-muted small mb-2">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Possible reasons for session lock:
+                        </p>
+                        <ul class="list-unstyled text-muted small">
+                            <li>• Face not detected</li>
+                            <li>• Unknown face detected</li>
+                            <li>• Multiple faces detected</li>
+                            <li>• Liveness check failed</li>
+                            <li>• Session expired</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
