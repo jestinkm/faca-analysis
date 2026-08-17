@@ -1,7 +1,3 @@
-"""
-Configuration file for FaceSecure application.
-Loads environment variables from .env file.
-"""
 
 import os
 from dotenv import load_dotenv
