@@ -109,6 +109,12 @@
     <div id="accuracy"></div>
 
     <script>
+        // ---------- CONFIGURATION ----------
+        // Update this URL to your deployed backend URL
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:5000'
+            : 'https://deepfake-backend.onrender.com'; // Replace with your actual Render URL
+        
         const video = document.getElementById('video');
         const statusDiv = document.getElementById('status');
         const accuracyDiv = document.getElementById('accuracy');
@@ -137,7 +143,7 @@
         async function checkFace() {
             const imageData = captureFrame();
             try {
-                const response = await fetch('/check_face', {
+                const response = await fetch(`${API_BASE_URL}/check_face`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ image: imageData })

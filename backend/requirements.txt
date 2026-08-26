@@ -1,0 +1,11 @@
+flask
+flask-cors
+opencv-python
+numpy
+face-recognition
+dlib
+web3
+cryptography
+pymongo
+python-dotenv
+gunicorn
